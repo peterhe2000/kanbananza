@@ -2,7 +2,7 @@ import { lists as defaultLists } from '../normalized-state';
 import set from 'lodash/fp/set';
 
 //set (chainOfProperties, what you want to replaced, the object you want to replace on)
-
+// chainOfProperties eg: entities, listId what we are looking for, cards
 const listsReducer = (lists = defaultLists, action) => {
   if (action.type === 'CARD_CREATE') {
     const { cardId, listId } = action.payload;
