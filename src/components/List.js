@@ -3,11 +3,14 @@ import React, { Component } from 'react';
 import CreateCard from './CreateCard';
 import Card from './Card';
 import CardContainer from '../containers/CardContainer';
+import CreateCardContainer from '../containers/CreateCardContainer';
 
 class List extends Component {
   state = { showOptions: false };
 
-  toggleOptions = () => {};
+  toggleOptions = () => {
+    this.setState({ showOptions: !this.state.showOptions });
+  };
 
   createCard = () => {};
 
@@ -22,7 +25,7 @@ class List extends Component {
         <h2>{list.title}</h2>
         {showOptions && (
           <div className="List-options">
-            <CreateCard onCreateCard={this.createCard} />
+            <CreateCardContainer listId={list.id} />
             <button className="List-remove danger" onClick={this.removeList}>
               Remove List
             </button>
