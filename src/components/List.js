@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import CreateCard from './CreateCard';
 import Card from './Card';
+import CardContainer from '../containers/CardContainer';
 
 class List extends Component {
   state = { showOptions: false };
@@ -34,8 +35,9 @@ class List extends Component {
           Toggle Options
         </button>
         <div>
-          {/* Iterate over cards here. */}
-          <Card />
+          {list.cards.map((cardId) => (
+            <CardContainer key={cardId} cardId={cardId} />
+          ))}
         </div>
       </article>
     );
