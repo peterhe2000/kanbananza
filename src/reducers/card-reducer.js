@@ -1,12 +1,14 @@
 import { cards as defaultCards } from '../normalized-state';
+import { addEntity } from './_utilities';
 
 const cardsReducer = (cards = defaultCards, action) => {
   if (action.type === 'CARD_CREATE') {
     const { card, cardId } = action.payload;
-    return {
-      entities: { ...cards.entities, [cardId]: card },
-      ids: [...cards.ids, cardId],
-    };
+    return addEntity(cards, card, cardId);
+    // return {
+    //   entities: { ...cards.entities, [cardId]: card },
+    //   ids: [...cards.ids, cardId],
+    // };
   }
   return cards;
 };
